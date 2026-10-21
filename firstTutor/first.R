@@ -12,14 +12,14 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(pacman, psych, rio, tidyverse) 
 
 # LOAD DATA ################################################
-head(rivers)
+head(EuStockMarkets)
 
 
 # WORK WITH DATA ###########################################
-describe(rivers)
-View(rivers)     # таблица в RStudio
-str(rivers)      # структура данных
-summary(rivers)  # статистическая сводка
+describe(EuStockMarkets)
+View(EuStockMarkets)     # таблица в RStudio
+str(EuStockMarkets)      # структура данных
+summary(EuStockMarkets)  # статистическая сводка
 
 # CLEAN UP #################################################
 
