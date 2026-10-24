@@ -12,15 +12,22 @@ if (!require("pacman")) install.packages("pacman")
 pacman::p_load(pacman, psych, rio, tidyverse) 
 
 # LOAD DATA ################################################
-
-head(EuStockMarkets)
+?mtcars
+head(mtcars)
 
 # WORK WITH DATA ###########################################
 
-describe(EuStockMarkets)
-View(EuStockMarkets)     # таблица в RStudio
-str(EuStockMarkets)      # структура данных
-summary(EuStockMarkets)  # статистическая сводка
+describe(mtcars)
+View(mtcars)     # таблица в RStudio
+str(mtcars)      # структура данных
+summary(mtcars)  # статистическая сводка
+
+# some plots
+barplot(mtcars$cyl)             # it's worked
+# Need a table with frequencies for each category
+cylinders <- table(mtcars$cyl)  # Create table
+barplot(cylinders)              # Bar chart
+plot(cylinders)                 # Default X-Y plot (lines)
 
 # CLEAN UP #################################################
 
