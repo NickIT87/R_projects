@@ -15,7 +15,13 @@ pacman::p_load(pacman, psych, rio, tidyverse)
 ?mtcars
 head(mtcars)
 
+cars <- mtcars[, c(1:4, 6:7, 9:11)]  # Select variables
+head(cars)
+
 # WORK WITH DATA ###########################################
+# Get info on package
+p_help(mtcars)           # Opens package PDF in browser
+p_help(mtcars, web = F)  # Opens help in R Viewer
 
 describe(mtcars)
 View(mtcars)     # таблица в RStudio
@@ -28,6 +34,24 @@ barplot(mtcars$cyl)             # it's worked
 cylinders <- table(mtcars$cyl)  # Create table
 barplot(cylinders)              # Bar chart
 plot(cylinders)                 # Default X-Y plot (lines)
+
+# COMPUTE AND PLOT CLUSTERS ################################
+
+# Save hierarchical clustering to "hc." This codes uses
+# pipes from dplyr.
+hc <- cars   %>%  # Get cars data
+  dist   %>%  # Compute distance/dissimilarity matrix
+  hclust      # Computer hierarchical clusters
+
+plot(hc)          # Plot dendrogram
+
+# ADD BOXES TO PLOT ########################################
+
+rect.hclust(hc, k = 2, border = "gray")
+rect.hclust(hc, k = 3, border = "blue")
+rect.hclust(hc, k = 4, border = "green4")
+rect.hclust(hc, k = 5, border = "darkred")
+
 
 # CLEAN UP #################################################
 
